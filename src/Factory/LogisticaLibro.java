@@ -1,0 +1,14 @@
+package Factory;
+
+public class LogisticaLibro {
+    public static Librito crearLibro(String tipo, String titulo, String autor, String isbn) {
+        switch (tipo.toLowerCase()) {
+            case "fisico":
+                return new Factory.LibroFisico(titulo, autor, isbn);
+            case "digital":
+                return new LibroDigital(titulo, autor, isbn);
+            default:
+                throw new IllegalArgumentException("Tipo de libro desconocido: " + tipo);
+        }
+    }
+}
